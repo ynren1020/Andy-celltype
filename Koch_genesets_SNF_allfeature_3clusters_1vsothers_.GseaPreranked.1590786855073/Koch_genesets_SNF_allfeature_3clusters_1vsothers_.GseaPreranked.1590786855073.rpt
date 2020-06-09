@@ -1,0 +1,20 @@
+producer_class	xtools.gsea.GseaPreranked
+producer_timestamp	1590786855073
+param	scoring_scheme	weighted
+param	norm	meandiv
+param	make_sets	true
+param	gui	false
+param	set_max	500
+param	rnd_seed	timestamp
+param	rpt_label	Koch_genesets_SNF_allfeature_3clusters_1vsothers_
+param	gmx	/Users/yren/Projects/Andy/celltype/Koch_genesets.gmx.txt
+param	out	/Users/yren/Projects/Andy/celltype
+param	help	false
+param	zip_report	false
+param	create_svgs	false
+param	set_min	15
+param	nperm	1000
+param	rnk	/Users/yren/Projects/Andy/rnaseq/SNF_allfeature_3clusters_1vsothers.gsea.rnk
+param	plot_top_x	20
+
+file	/Users/yren/Projects/Andy/celltype/Koch_genesets_SNF_allfeature_3clusters_1vsothers_.GseaPreranked.1590786855073/index.html

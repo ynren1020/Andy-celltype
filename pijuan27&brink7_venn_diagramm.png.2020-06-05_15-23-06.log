@@ -1,0 +1,12 @@
+INFO [2020-06-05 15:23:06] $x
+INFO [2020-06-05 15:23:06] list(pijuan_27, brink_7)
+INFO [2020-06-05 15:23:06] 
+INFO [2020-06-05 15:23:06] $category.names
+INFO [2020-06-05 15:23:06] c("pijuan_27", "brink_7 ")
+INFO [2020-06-05 15:23:06] 
+INFO [2020-06-05 15:23:06] $filename
+INFO [2020-06-05 15:23:06] [1] "pijuan27&brink7_venn_diagramm.png"
+INFO [2020-06-05 15:23:06] 
+INFO [2020-06-05 15:23:06] $output
+INFO [2020-06-05 15:23:06] [1] TRUE
+INFO [2020-06-05 15:23:06] 

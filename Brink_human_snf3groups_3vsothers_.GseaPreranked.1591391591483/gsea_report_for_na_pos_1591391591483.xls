@@ -1,0 +1,13 @@
+NAME	GS<br> follow link to MSigDB	GS DETAILS	SIZE	ES	NES	NOM p-val	FDR q-val	FWER p-val	RANK AT MAX	LEADING EDGE	
+CL_10	CL_10	Details ...	97	0.61217266	2.686658	0.0	0.0	0.0	6035	tags=63%, list=22%, signal=80%	
+CL_04	CL_04	Details ...	88	0.5949227	2.5988343	0.0	0.0	0.0	5130	tags=57%, list=19%, signal=70%	
+CL_07	CL_07	Details ...	88	0.55234927	2.4185233	0.0	0.0	0.0	3912	tags=42%, list=14%, signal=49%	
+CL_02	CL_02	Details ...	94	0.50506514	2.2676516	0.0	0.0	0.0	3751	tags=35%, list=14%, signal=40%	
+CL_08	CL_08	Details ...	87	0.4812249	2.1146483	0.0	0.0	0.0	3218	tags=31%, list=12%, signal=35%	
+CL_01	CL_01	Details ...	88	0.46716574	2.0628998	0.0	0.0	0.0	2385	tags=28%, list=9%, signal=31%	
+CL_03	CL_03	Details ...	93	0.4193251	1.8614545	0.0	0.0	0.0	2469	tags=29%, list=9%, signal=32%	
+CL_05	CL_05	Details ...	92	0.41018096	1.8309854	0.0	0.0	0.0	3766	tags=32%, list=14%, signal=36%	
+CL_11	CL_11	Details ...	90	0.38286105	1.6726224	0.0064935065	0.0029728727	0.002	5807	tags=38%, list=21%, signal=48%	
+CL_13	CL_13	Details ...	90	0.3760394	1.6522033	0.0	0.0026755854	0.002	4428	tags=36%, list=16%, signal=42%	
+CL_06	CL_06	Details ...	87	0.3567908	1.5942616	0.0	0.0033444816	0.004	4573	tags=33%, list=17%, signal=40%	
+CL_12	CL_12	Details ...	88	0.33343127	1.4794613	0.005376344	0.0070791533	0.015	6381	tags=42%, list=23%, signal=54%	

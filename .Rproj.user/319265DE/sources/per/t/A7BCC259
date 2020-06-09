@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1591302741644.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1438420423",
+    "id" : "A7BCC259",
+    "lastKnownWriteTime" : 1591388670,
+    "last_content_update" : 1591388670532,
+    "path" : "~/Projects/Andy/celltype/celltype.R",
+    "project_path" : "celltype.R",
+    "properties" : {
+        "cursorPosition" : "12,20",
+        "scrollLine" : "1",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
