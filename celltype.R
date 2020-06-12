@@ -4,7 +4,7 @@
 # logFC >1 and adj.p <0.05 ##############
 
 library(readxl)
-library(dplyr)
+#library(dplyr)
 library(tidyverse)
 
 # Basic function to convert mouse to human gene names
@@ -25,7 +25,7 @@ convertMouseGeneList <- function(x){
 
 # data ---
 path <- "Pijuan.xlsx"
-path <- "Brink.xlsx"
+#path <- "Brink.xlsx"
 
 list_all <- path %>% 
     excel_sheets() %>% 
@@ -33,19 +33,30 @@ list_all <- path %>%
     map(read_excel, path = path)
 
 
+#choose top 20 significant genes ---
+
+for (i in 1:length(list_all)) {
+keep <- order(list_all[[i]]$`p-value`) <= 20
+list_all[[i]]<-list_all[[i]][keep,]
+#keep <- list_all[[i]]$...2[list_all[[i]]$`p-value`]
+#list_all[[i]] <- convertMouseGeneList(list_all[[i]]$...2)
+#genes[i] <- paste0(convertMouseGeneList(list_all[[i]]$names), collapse = ";")
+}
+
+
+# convert to human gene symbols ---
 genes <- NULL
 
 for (i in 1:length(list_all)) {
-
-#genes[i] <- paste0(convertMouseGeneList(list_all[[i]]$...2), collapse = ";")
-genes[i] <- paste0(convertMouseGeneList(list_all[[i]]$names), collapse = ";")
-
-
+    
+    genes[i] <- paste0(convertMouseGeneList(list_all[[i]]$...2), collapse = ";")
+    #genes[i] <- paste0(convertMouseGeneList(list_all[[i]]$names), collapse = ";")
 }
+
 
 df4geneset <- data.frame(genesets = names(list_all), description = "na", genes = genes)
 
-write.table(df4geneset, "Pijuan_geneset.txt", sep = "\t", col.names = FALSE, row.names = FALSE,
+write.table(df4geneset, "Pijuan_geneset_top20_human.txt", sep = "\t", col.names = FALSE, row.names = FALSE,
             quote = FALSE)
 
 write.table(df4geneset, "Brink_geneset.txt", sep = "\t", col.names = FALSE, row.names = FALSE,
