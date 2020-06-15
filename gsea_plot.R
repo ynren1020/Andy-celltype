@@ -43,9 +43,8 @@ library(RColorBrewer)
 library(ggrepel)
 
 
-ptest<-ggplot2::ggplot(brinks1,aes(x=RANK,y=NES,label = ifelse(logP >4,as.character(NAME),'')))+
-    ggplot2::geom_point(aes(color = logP))+
-    labs(color='-log10(q)') +
+ptest<-ggplot(brinks3,aes(x=RANK,y=NES,label = ifelse(logP >4,as.character(NAME),'')))+
+    geom_point(aes(color = logP))+
     #geom_text(aes(label = ifelse(color=="dark",as.character(NAME),'')), vjust= -1)+
     #ggplot2::geom_point(aes(color=ifelse(FDR.q.val < 0.001, "FDR < = 0.001", ifelse(FDR.q.val < 0.01, "FDR < 0.01", ifelse(FDR.q.val ))))+ #mapping aes(color),here define different color based on isSuper!!!
     #ggplot2::scale_colour_manual(name='',values=c('FDR > 0.05'='grey','FDR < = 0.05'='red'))+ #add color manually!!!!
@@ -53,24 +52,26 @@ ptest<-ggplot2::ggplot(brinks1,aes(x=RANK,y=NES,label = ifelse(logP >4,as.charac
     #geom_vline(xintercept = 25982,linetype="dashed",size=0.5,alpha=0.2)+
     #geom_hline(yintercept = 1.3,linetype="dashed",size=0.5,alpha=0.2)+
     #geom_hline(yintercept = 2,linetype="dashed",size=0.5,alpha=0.2)+
-    ggplot2::labs(x="Rank",y="Normal Enrichement Score")+
-    ggplot2::theme_bw()+
-    ggplot2::theme(panel.grid.major=element_blank(),
+    labs(x="Rank",y="Normal Enrichement Score",color='-log10(q)')+
+    theme_bw()+
+    theme(panel.grid.major=element_blank(),
           panel.grid.minor=element_blank())+
-    ggplot2::theme(legend.position = c(0.9, 0.2))
+    theme(legend.position = c(0.85, 0.2),
+          text = element_text(size=15))
    
 set.seed(00)
-ppd<-ptest+geom_text_repel(data=brinks1,nudge_x=-1,direction="y",force=2,max.iter=4000,hjust=1,segment.size=0.2)
+ppd<-ptest+geom_text_repel(data=brinks3,nudge_x=-1,direction="y",force=2,max.iter=4000,hjust=1,segment.size=0.2,size = 5)
 
-ggsave("Brinks1_gsea.pdf", width = 6, height = 6)
+ggsave("Brinks3_gsea.pdf", width = 6, height = 6)
 
 
 
 #pijuan plot ---
-
-ptest<-ggplot2::ggplot(pijuan3,aes(x=RANK,y=NES,label = ifelse((logP >4 | NAME == "27-NMP"),as.character(NAME),'')))+
-    ggplot2::geom_point(aes(color = logP))+
-    labs(color='-log10(q)') +
+#for group3, label = ifelse((logP >4 | NAME == "27-NMP"),as.character(NAME),'') nudge_x=-10
+#for group2, label = ifelse(logP >1.7,as.character(NAME),'') nudge_x=-10
+#for group1, label = ifelse(logP >4,as.character(NAME),''), nudge_x=15
+ptest<-ggplot(pijuan1,aes(x=RANK,y=NES,label = ifelse(logP >4,as.character(NAME),'')))+
+    geom_point(aes(color = logP))+
     #geom_text(aes(label = ifelse(color=="dark",as.character(NAME),'')), vjust= -1)+
     #ggplot2::geom_point(aes(color=ifelse(FDR.q.val < 0.001, "FDR < = 0.001", ifelse(FDR.q.val < 0.01, "FDR < 0.01", ifelse(FDR.q.val ))))+ #mapping aes(color),here define different color based on isSuper!!!
     #ggplot2::scale_colour_manual(name='',values=c('FDR > 0.05'='grey','FDR < = 0.05'='red'))+ #add color manually!!!!
@@ -78,16 +79,17 @@ ptest<-ggplot2::ggplot(pijuan3,aes(x=RANK,y=NES,label = ifelse((logP >4 | NAME =
     #geom_vline(xintercept = 25982,linetype="dashed",size=0.5,alpha=0.2)+
     #geom_hline(yintercept = 1.3,linetype="dashed",size=0.5,alpha=0.2)+
     #geom_hline(yintercept = 2,linetype="dashed",size=0.5,alpha=0.2)+
-    ggplot2::labs(x="Rank",y="Normal Enrichement Score")+
-    ggplot2::theme_bw()+
-    ggplot2::theme(panel.grid.major=element_blank(),
+    labs(x="Rank", y="Normal Enrichement Score", color='-log10(q)')+
+    theme_bw()+
+    theme(panel.grid.major=element_blank(),
                    panel.grid.minor=element_blank())+
-    ggplot2::theme(legend.position = c(0.9, 0.2))
+    theme(legend.position = c(0.85, 0.2),
+                   text = element_text(size=15))
 
 set.seed(00)
-ppd<-ptest+geom_text_repel(data=pijuan3,nudge_x=-10,direction="y",force=2,max.iter=4000,hjust=1,segment.size=0.2)
+ppd<-ptest+geom_text_repel(data=pijuan1,nudge_x=-10,direction="y",force=2,max.iter=4000,hjust=1,segment.size=0.2, size = 4)
 
-ggsave("Pijuan3_gsea.pdf", width = 6, height = 6)
+ggsave("Pijuan1_gsea.pdf", width = 6, height = 6)
 
 
 
