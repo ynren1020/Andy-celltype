@@ -9,19 +9,19 @@ pre_plot <- function(pos, neg, n = 13){
         neg <- read.delim(neg, header = TRUE, stringsAsFactors = FALSE, sep = "\t")
         neg <- neg[, c("NAME","NES","FDR.q.val")]
         neg$RANK <- order(neg$NES)
-        neg$color <- ifelse(neg$FDR.q.val <= 0.05, "dark", "light")
+        neg$logP <- -log10(neg$FDR.q.val + 0.00001)
         return(neg)
     } else if (nrow(pos) == n){
         pos <- pos[, c("NAME","NES","FDR.q.val")]
         pos$RANK <- order(pos$NES)
-        pos$color <- ifelse(pos$FDR.q.val <= 0.05, "dark", "light")
+        pos$logP <- -log10(pos$FDR.q.val + 0.00001)
         return(pos)
     } else {
         neg <- read.delim(neg, header = TRUE, stringsAsFactors = FALSE, sep = "\t")
         pos.neg <- rbind(neg, pos)
         pos.neg <- pos.neg[, c("NAME","NES","FDR.q.val")]
         pos.neg$RANK <- order(pos.neg$NES)
-        pos.neg$color <- ifelse(pos.neg$FDR.q.val <= 0.05, "dark", "light")
+        pos.neg$logP <- -log10(pos.neg$FDR.q.val + 0.00001)
         return(pos.neg)
     } 
     
@@ -41,11 +41,7 @@ brinks3 <- pre_plot("Brinks_3vsothers_pos.txt", "Brinks_3vsothers_neg.txt")
 library(ggplot2)
 library(RColorBrewer)
 library(ggrepel)
-brinks1$logP <- -log10(brinks1$FDR.q.val + 0.00001)
-brinks2$logP <- -log10(brinks2$FDR.q.val + 0.00001)
-brinks3$logP <- -log10(brinks3$FDR.q.val + 0.00001)
 
-pijuan1$logP <- -log10(pijuan1$FDR.q.val + 0.00001)
 
 ptest<-ggplot2::ggplot(brinks1,aes(x=RANK,y=NES,label = ifelse(logP >4,as.character(NAME),'')))+
     ggplot2::geom_point(aes(color = logP))+
@@ -71,9 +67,6 @@ ggsave("Brinks1_gsea.pdf", width = 6, height = 6)
 
 
 #pijuan plot ---
-pijuan1$logP <- -log10(pijuan1$FDR.q.val + 0.00001)
-pijuan2$logP <- -log10(pijuan2$FDR.q.val + 0.00001)
-pijuan3$logP <- -log10(pijuan3$FDR.q.val + 0.00001)
 
 ptest<-ggplot2::ggplot(pijuan3,aes(x=RANK,y=NES,label = ifelse((logP >4 | NAME == "27-NMP"),as.character(NAME),'')))+
     ggplot2::geom_point(aes(color = logP))+
