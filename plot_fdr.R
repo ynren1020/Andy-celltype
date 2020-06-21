@@ -38,6 +38,9 @@ snf3 <- pre_plot("gProfiler_snf3_Brinks_human_allres.txt", group = "C3")
 
 snf.all <- do.call("rbind", list(snf1.join.T,snf2,snf3))
 snf.all <- snf.all[,order(names(snf.all))]
+names(snf.all) <- c("Cardiac", "Paraxial MD", "Diff somite", "Somite", "Diff front",
+                    "Presomitic MD", "NMPs", "Spinal cord", "Mesenchyme", "Endothelium",
+                    "allantois", "ExE ectoderm", "endoderm")
 
 # heatmap ---
 library(ComplexHeatmap)
