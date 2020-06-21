@@ -44,7 +44,7 @@ library(ComplexHeatmap)
 library(circlize)
 library(RColorBrewer)
 col_fun = colorRamp2(c(0, 1.3, 2), c("#deebf7", "#9ecae1", "#3182bd"))
-pdf("Figure19.SNFallfeature_Brinks_neglog10FDR.pdf",width=10,height=3)
+pdf("Figure19.SNFallfeature_Brinks_neglog10FDR.pdf",width=10,height=2)
 Heatmap(as.matrix(snf.all), 
         name = "-log10(FDR)",
         col = col_fun,
